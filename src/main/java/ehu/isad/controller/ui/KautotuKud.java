@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -27,6 +28,15 @@ public class KautotuKud implements Initializable {
 
     @FXML
     private TextField txtPasahitza;
+
+    @FXML
+    private Button btn_Ezabatu;
+
+    @FXML
+    void klikEgin(ActionEvent event) {
+        ZerbitzuKud.getInstance().zerbitzuaEzabatu((String) comboZerbitzua.getValue());
+        this.eguneratu();
+    }
 
     public void setMainApp(Main main) {
         this.mainApp = main;
@@ -52,6 +62,13 @@ public class KautotuKud implements Initializable {
 
         comboZerbitzua.setItems( herrialdeak );
 
+    }
+
+    private void eguneratu(){
+        List<String> herrialdeakList = ZerbitzuKud.getInstance().lortuZerbitzuak();
+        ObservableList<String> herrialdeak = FXCollections.observableArrayList(herrialdeakList);
+
+        comboZerbitzua.setItems( herrialdeak );
     }
 
 }

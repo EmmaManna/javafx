@@ -4,6 +4,7 @@ import ehu.isad.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -18,6 +19,7 @@ public class MainKud implements Initializable {
   public void setMainApp(Main main) {
     this.mainApp = mainApp;
   }
+
 
   @FXML
   public void onClick(ActionEvent actionEvent) {

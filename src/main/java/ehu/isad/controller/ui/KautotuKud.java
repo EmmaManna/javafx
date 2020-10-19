@@ -36,6 +36,7 @@ public class KautotuKud implements Initializable {
     void klikEgin(ActionEvent event) {
         ZerbitzuKud.getInstance().zerbitzuaEzabatu((String) comboZerbitzua.getValue());
         this.eguneratu();
+
     }
 
     public void setMainApp(Main main) {
@@ -65,10 +66,8 @@ public class KautotuKud implements Initializable {
     }
 
     private void eguneratu(){
-        List<String> herrialdeakList = ZerbitzuKud.getInstance().lortuZerbitzuak();
-        ObservableList<String> herrialdeak = FXCollections.observableArrayList(herrialdeakList);
-
-        comboZerbitzua.setItems( herrialdeak );
+        ObservableList<String> zerbitzuak =comboZerbitzua.getItems();
+        zerbitzuak.remove(comboZerbitzua.getValue());
     }
 
 }
